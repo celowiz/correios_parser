@@ -1,0 +1,19 @@
+<meta charset="utf-8"/>
+<h1>Procurar Objeto:</h1>
+
+<%= form_tag(static_pages_path, method: "get") do %>
+  <%= text_field_tag(:codigo, params[:codigo]) %>
+  <%= submit_tag("Search")  %>
+<% end %>
+<br><hr><br>
+
+
+<% if @codigo != nil %>
+  <% if @codigo.size == 13 %>
+    <%= "O código procurado foi: " %> <strong><%= "#{@codigo}" %></strong>
+    <br>
+    <%= "Seu status é:" %> <strong><%= "#{@response}" %></strong>
+  <% else %>
+    <%= "Digite um código válido" %>
+  <% end %>
+<% end %>
